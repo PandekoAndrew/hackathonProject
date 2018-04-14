@@ -10,6 +10,9 @@ public class Property {
     private int area;
     private String type;
 
+    public Property() {
+    }
+
     public Property(Long id, String region, String city, String address, int price, int area, String type) {
         this.id = id;
         this.region = region;

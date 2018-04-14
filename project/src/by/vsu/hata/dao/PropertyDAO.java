@@ -1,6 +1,6 @@
 package by.vsu.hata.dao;
 
-import by.vsu.entity.Property;
+import by.vsu.hata.entity.Property;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +12,7 @@ import java.util.List;
 public class PropertyDAO implements AbstractDAO<Property, Long> {
     private static final String SELECT_ALL = "SELECT * FROM property";
     private static final String SELECT_BY_ID = "SELECT * FROM property WHERE id = ?";
-    private static final String INSERT = "INSERT INTO property(region, city, address, price, area, type) VALUES(?, ?, ?, ?, ?, ?)";
+    private static final String INSERT = "INSERT INTO property(region, city, address, price, area, type) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String DELETE_BY_ID = "DELETE FROM property WHERE id = ?";
     private static final String DELETE_ALL = "DELETE FROM property";
     

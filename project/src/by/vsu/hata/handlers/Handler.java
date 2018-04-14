@@ -8,6 +8,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 import java.io.*;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -18,12 +19,11 @@ public class Handler implements HttpHandler {
         try {
             String response = new String(Files.readAllBytes(Paths.get("index.html")));
             response = replace(parseURI(t.getRequestURI().toString()), response);
-            t.sendResponseHeaders(200, "vasya".length());
+            byte[] bs = response.getBytes("UTF-8");
+            t.sendResponseHeaders(200, bs.length);
             OutputStream os = t.getResponseBody();
-            os.write("vasya".getBytes());
+            os.write(bs);
             os.close();
-            System.out.println(response);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -42,13 +42,13 @@ public class Handler implements HttpHandler {
             return getMap(PropertyStorage.getAll());
         }
         if (split.length == 3) {//по параметру
-            switch (split[1]) {
+            switch (URLDecoder.decode(split[1])) {
                 case "region":
-                    return getMap(PropertyHandler.findByRegion(all, split[2]));
+                    return getMap(PropertyHandler.findByRegion(all, URLDecoder.decode(split[2]).toLowerCase()));
                 case "city":
-                    return getMap(PropertyHandler.findByCity(all, split[2]));
+                    return getMap(PropertyHandler.findByCity(all, URLDecoder.decode(split[2]).toLowerCase()));
                 case "type":
-                    return getMap(PropertyHandler.findByType(all, split[2]));
+                    return getMap(PropertyHandler.findByType(all, URLDecoder.decode(split[2]).toLowerCase()));
                 default:
                     //запрос дичь
                     return PropertyStorage.getEmptyMap();
@@ -64,7 +64,6 @@ public class Handler implements HttpHandler {
         map.put(PropertyStorage.PRICE, Double.toString(getAvgPrice(properties)));
         map.put(PropertyStorage.AREA, Double.toString(getAvgArea(properties)));
         properties.sort(Comparator.comparingDouble(o -> o.getPrice() / ((double) o.getArea())));
-        Collections.reverse(properties);
         map.put(PropertyStorage.LIST, Table.getTable(properties));
         return map;
     }

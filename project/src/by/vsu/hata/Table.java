@@ -17,8 +17,8 @@ public class Table {
             if (counter == 10) {
                 break;
             }
-            table.append("</table>");
         }
+        table.append("</table>");
         return table.toString();
     }
 
