@@ -8,17 +8,15 @@ public class Property {
     private String address;
     private int price;
     private int area;
-    private int roomsAmount;
     private String type;
 
-    public Property(Long id, String region, String city, String address, int price, int area, int roomsAmount, String type) {
+    public Property(Long id, String region, String city, String address, int price, int area, String type) {
         this.id = id;
         this.region = region;
         this.city = city;
         this.address = address;
         this.price = price;
         this.area = area;
-        this.roomsAmount = roomsAmount;
         this.type = type;
     }
 
@@ -68,14 +66,6 @@ public class Property {
 
     public void setArea(int area) {
         this.area = area;
-    }
-
-    public int getRoomsAmount() {
-        return roomsAmount;
-    }
-
-    public void setRoomsAmount(int roomsAmount) {
-        this.roomsAmount = roomsAmount;
     }
 
     public String getType() {

@@ -27,16 +27,6 @@ public class PropertyHandler {
         return resultSet;
     }
 
-    public static List<Property> findByRoomsAmount(List<Property> properties, int amount) {
-        List<Property> resultSet = new ArrayList<>();
-        for (Property property : properties) {
-            if (property.getRoomsAmount() == amount) {
-                resultSet.add(property);
-            }
-        }
-        return resultSet;
-    }
-
     public static List<Property> findByType(List<Property> properties, String type) {
         List<Property> resultSet = new ArrayList<>();
         for (Property property : properties) {
