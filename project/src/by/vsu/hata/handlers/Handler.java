@@ -44,11 +44,9 @@ public class Handler implements HttpHandler {
         if (split.length == 3) {//по параметру
             switch (URLDecoder.decode(split[1])) {
                 case "region":
-                    return getMap(PropertyHandler.findByRegion(all, URLDecoder.decode(split[2]).toLowerCase()));
+                    return getMap(PropertyHandler.findByRegion(all, URLDecoder.decode(split[2])));
                 case "city":
-                    return getMap(PropertyHandler.findByCity(all, URLDecoder.decode(split[2]).toLowerCase()));
-                case "type":
-                    return getMap(PropertyHandler.findByType(all, URLDecoder.decode(split[2]).toLowerCase()));
+                    return getMap(PropertyHandler.findByCity(all, URLDecoder.decode(split[2])));
                 default:
                     //запрос дичь
                     return PropertyStorage.getEmptyMap();

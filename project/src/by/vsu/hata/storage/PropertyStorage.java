@@ -22,12 +22,12 @@ public class PropertyStorage {
 //        PropertyDAO dao = new PropertyDAO();
 //        return dao.getAll();
         List<Property> list = new ArrayList<>();
-        list.add(new Property(0L, "витебская область", "витебск", "строителей", 1228, 322, "дом1"));
-        list.add(new Property(0L, "витебская область", "витебск", "строителей", 2228, 322, "дом2"));
-        list.add(new Property(0L, "витебская область", "verh", "строителей", 3228, 322, "дом3"));
-        list.add(new Property(0L, "витебская область", "витебск", "строителей", 4228, 322, "дом4"));
-        list.add(new Property(0L, "витебская область", "витебск", "строителей", 5228, 322, "дом5"));
-        list.add(new Property(0L, "витебская область", "витебск", "строителей", 6228, 322, "дом6"));
+        list.add(new Property(0L, "витебская область", "витебск", "http://vsu.by/", 1228, 1, "дом1"));
+        list.add(new Property(0L, "витебская область", "витебск", "http://vsu.by/", 2228, 322, "дом2"));
+        list.add(new Property(0L, "витебская область", "verh", "http://vsu.by/", 3228, 322, "дом3"));
+        list.add(new Property(0L, "витебская область", "витебск", "http://vsu.by/", 4228, 322, "дом4"));
+        list.add(new Property(0L, "витебская область", "витебск", "http://vsu.by/", 5228, 322, "дом5"));
+        list.add(new Property(0L, "витебская область", "витебск", "http://vsu.by/", 6228, 322, "дом6"));
         list.add(new Property(0L, "витебская область", "minsk", "строителей", 7228, 322, "дом7"));
         list.add(new Property(0L, "витебская область", "витебск", "строителей", 8228, 322, "дом8"));
         list.add(new Property(0L, "витебская область", "витебск", "строителей", 9228, 322, "дом9"));

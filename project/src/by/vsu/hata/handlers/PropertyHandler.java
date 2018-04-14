@@ -26,14 +26,4 @@ public class PropertyHandler {
         }
         return resultSet;
     }
-
-    public static List<Property> findByType(List<Property> properties, String type) {
-        List<Property> resultSet = new ArrayList<>();
-        for (Property property : properties) {
-            if (property.getType().equals(type)) {
-                resultSet.add(property);
-            }
-        }
-        return resultSet;
-    }
 }

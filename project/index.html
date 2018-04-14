@@ -1,10 +1,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+            background: #fefcea; /* Для старых браузров */
+            background: linear-gradient(to top, #fefcea, #00a2f1);
+            padding: 10px;
+        }
+        .table_blur {
+            background: #f5ffff;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .table_blur th {
+            box-shadow: inset 0 1px 0 #999999, inset 0 -1px 0 #999999;
+            background: linear-gradient(#007dff, #00c9ff);
+            color: white;
+            padding: 10px 15px;
+            position: relative;
+        }
+        .table_blur th:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 25%;
+            height: 25%;
+            width: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0), rgba(255,255,255,.08));
+        }
+        .table_blur tr:nth-child(odd) {
+            background: #ebf3f9;
+        }
+        .table_blur th:first-child {
+            box-shadow: inset 1px 1px 0 #999999, inset 0 -1px 0 #999999;
+        }
+        .table_blur th:last-child {
+            box-shadow: inset -1px 1px 0 #999999, inset 0 -1px 0 #999999;
+        }
+        .table_blur td {
+            padding: 10px 15px;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+    </style>
+    <script>
+        function send() {
+            var region = document.getElementById("region").value.trim().toLowerCase();
+            var city = document.getElementById("city").value.trim().toLowerCase();
+
+            if (region !== "") {
+                window.location.href = "/region/" + region;
+            } else if (city !== "") {
+                window.location.href = "/city/" + city;
+            }
+        }
+    </script>
 </head>
 <body>
-price: %price%<br>
-area: %area%<br>
-list: %list%
+<center>
+Область<br>
+<input id="region" type="text"><br>
+Город<br>
+<input id="city" type="text"><br>
+<br>
+<input id="send" value="Найти" type="button" onclick="send()"><br><br>
+Средняя стоимость: %price%<br>
+Средняя площадь: %area%<br><br>
+<div style="">%list%</div>
 </body>
 </html>
