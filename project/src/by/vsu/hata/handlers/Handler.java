@@ -35,15 +35,18 @@ public class Handler implements HttpHandler {
     }
 
     private Map<String, String> parseURI(String uri) throws Exception {
-
-        System.err.println("uri " + uri);
-
         List<Property> all = PropertyStorage.getAll();
         String[] split = uri.split("/");
 
+
+        System.err.println("uri " + uri);
         System.err.println("split " + Arrays.toString(split));
 
-        if (split.length == 3) {
+
+        if (split.length == 1 || split.length == 0) {//средние данные по всему
+            return getMap(PropertyStorage.getAll());
+        }
+        if (split.length == 3) {//по параметру
             switch (split[1]) {
                 case "region":
                     return getMap(PropertyHandler.findByRegion(all, split[2]));
@@ -55,11 +58,11 @@ public class Handler implements HttpHandler {
                     return getMap(PropertyHandler.findByType(all, split[2]));
                 default:
                     //запрос дичь
-                    return Collections.emptyMap();
+                    return PropertyStorage.getEmptyMap();
             }
         } else {
             //404
-            return Collections.emptyMap();
+            return PropertyStorage.getEmptyMap();
         }
     }
 
