@@ -2,6 +2,7 @@ package by.vsu.hata.entity;
 
 public class Property {
 
+    private Long id;
     private String region;
     private String city;
     private String address;
@@ -10,7 +11,8 @@ public class Property {
     private int roomsAmount;
     private String type;
 
-    public Property(String region, String city, String address, int price, int area, int roomsAmount, String type) {
+    public Property(Long id, String region, String city, String address, int price, int area, int roomsAmount, String type) {
+        this.id = id;
         this.region = region;
         this.city = city;
         this.address = address;
@@ -18,6 +20,14 @@ public class Property {
         this.area = area;
         this.roomsAmount = roomsAmount;
         this.type = type;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getRegion() {

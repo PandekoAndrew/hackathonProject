@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PropertyHandler {
 
-    private List<Property> findByRegion(List<Property> properties, String region) {
+    public static List<Property> findByRegion(List<Property> properties, String region) {
         List<Property> resultSet = new ArrayList<>();
         for (Property property : properties) {
             if (property.getRegion().equals(region)) {
@@ -17,7 +17,7 @@ public class PropertyHandler {
         return resultSet;
     }
 
-    private List<Property> findByCity(List<Property> properties, String city) {
+    public static List<Property> findByCity(List<Property> properties, String city) {
         List<Property> resultSet = new ArrayList<>();
         for (Property property : properties) {
             if (property.getCity().equals(city)) {
@@ -27,7 +27,7 @@ public class PropertyHandler {
         return resultSet;
     }
 
-    private List<Property> findByRoomsAmount(List<Property> properties, int amount) {
+    public static List<Property> findByRoomsAmount(List<Property> properties, int amount) {
         List<Property> resultSet = new ArrayList<>();
         for (Property property : properties) {
             if (property.getRoomsAmount() == amount) {
@@ -37,7 +37,7 @@ public class PropertyHandler {
         return resultSet;
     }
 
-    private List<Property> findByPropertyType(List<Property> properties, String type) {
+    public static List<Property> findByType(List<Property> properties, String type) {
         List<Property> resultSet = new ArrayList<>();
         for (Property property : properties) {
             if (property.getType().equals(type)) {
